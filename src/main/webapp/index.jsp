@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>検索アプリ</title>
+<link rel="stylesheet"  href="css/login.css">
+</head>
+<body>
+<h1>ログイン</h1>
+<form action="Login" method="post">
+  ユーザー名：<input type="text" name="name"><br>
+  パスワード：<input type="password" name="pass"><br>
+  <input type="submit" value="ログイン">
+</form>
+
+<!-- 新規登録リンク -->
+<p> <a href="RegisterForm">新規会員登録</a></p>
+
+</body>
+</html>

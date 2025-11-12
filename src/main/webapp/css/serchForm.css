@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+/*アレルゲンボタン*/
+.allergen-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.allergen-btn {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.allergen-btn.selected {
+  background-color: #ffe0e0;
+  border-color: #cc0000;
+}
+
+.allergen-grid label {
+  margin: 0;
+}
+.allergen-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.allergen-table td {
+  width: 25%; /* 画面幅の1/4 */
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.allergen-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #333;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.allergen-btn:hover {
+  background-color: #e0f0ff;
+}
+
+/* 横並び用フォーム */
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* 要素の間隔 */
+
+  margin: 50px auto;
+}
+/*商品名検索ボックス*/
+input[name="keyword"] {
+  width: 50%;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: all 0.2s ease;
+}
+ 
+select[name="category"]{
+	width:50%;
+	padding: 12px 20px;
+	font-size: 16px;
+	border: 1px solid #ddd;
+}
+
+input[name="keyword"]:focus {
+  border-color: #4285f4;
+  box-shadow: 0 0 8px rgba(66, 133, 244, 0.4);
+}
+
+
+
+body {
+  font-family: sans-serif;
+  padding: 2em;
+  background :#FFF8DC;
+}
+
+h2 {
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-top: 1em;
+}
+
+/*検索ボタン*/
+input[type="submit"] {
+  margin-top: 2em;
+  padding: 0.5em 1.5em;
+  background: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+
+}
+
+input[type="submit"]:hover {
+  background: #005fa3;
+  
+}
+
+
