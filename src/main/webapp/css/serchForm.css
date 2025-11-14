@@ -1,5 +1,26 @@
 @charset "UTF-8";
+/*絞り込み表示／非表示*/
+#allergenArea {
+  display: none;
+}
+#toggleAllergenArea{
+	display: block;              /* 中央配置 */
+	  margin: 3em auto 0 auto;     /* 上に余白、左右自動で中央配置 */
+	  padding: 0.5em 2em;        /* ボタンサイズ拡大 */
+	  font-size: 20px;             /* テキストサイズ拡大 */
+	  width: auto;                 /* 必要なら固定幅 */
+	  background: #7b152345;
+	  color: black;
+	  border: none;
+	  border-radius: 8px;
+	  cursor: pointer;
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	  transition: background 0.3s ease;
+	}
 
+	#toggleAllergenArea:hover{
+		background-color:#e27373 ;
+	}
 /*全選択・全解除ボタン*/
 .allergen-controls {
   text-align: center;
@@ -120,6 +141,7 @@ body {
 
 h2 {
   color: #333;
+  text-align: center;
 }
 
 label {

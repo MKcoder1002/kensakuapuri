@@ -2,9 +2,17 @@ package model;
 import java.io.Serializable;
 
 public class User implements Serializable {
-  private String name; // ユーザー名
+	private int id;
+	private String name; // ユーザー名
   private String password; // パスワード
+  
 
+  public int getId() {
+	return id;
+}
+  public void setId(int Id) {
+	this.id = Id;
+  }
   public User() { }
   public User(String name, String pass) {
     this.name = name;

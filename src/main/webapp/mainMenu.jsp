@@ -38,6 +38,8 @@ User loginUser = (User) session.getAttribute("loginUser");
 
   <div class="menu">
     <a href="SearchFormServlet">🔍 検索する</a>
+    <a href="FavoriteListServlet">⭐ お気に入りを見る</a>
+    
   </div>
 </body>
 </html>

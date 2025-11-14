@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <title>検索結果</title>
   <style>
-    body { font-family: sans-serif; padding: 2em; background: #f0f0f0; }
+    body { font-family: sans-serif; padding: 2em; background: #FFF8DC; }
     h2 { color: #333; }
     table { border-collapse: collapse; width: 100%; margin-top: 1em; }
     th, td { border: 1px solid #ccc; padding: 0.5em; text-align: left; }
@@ -30,21 +30,29 @@
           <th>商品名</th>
           <th>カテゴリ</th>
           <th>アレルギー</th>
+          <th>お気に入り</th>
         </tr>
-        <c:forEach var="item" items="${resultList}">
-          <tr>
-            <td>${item.name}</td>
-            <td>${item.category}</td>
-            <td>
-              <c:if test="${not empty item.allergens}">
-    <c:forEach var="a" items="${item.allergens}">
-      ${a.name}<br />
-    </c:forEach>
-  </c:if>
-
-            </td>
-          </tr>
+ <c:forEach var="item" items="${resultList}">
+  <tr>
+    <td>${item.name}</td>
+    <td>${item.category}</td>
+    <td>
+      <c:if test="${not empty item.allergens}">
+        <c:forEach var="a" items="${item.allergens}">
+          ${a.name}<br />
         </c:forEach>
+      </c:if>
+    </td>
+    <td>
+      <form action="FavoriteAddServlet" method="post">
+        <input type="hidden" name="productId" value="${item.id}">
+        <button type="submit">★ お気に入り追加</button>
+      </form>
+    </td>
+  </tr>
+</c:forEach>
+
+
       </table>
     </c:otherwise>
   </c:choose>

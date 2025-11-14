@@ -27,8 +27,14 @@
       </select>
     </div>
 
+<!-- 絞り込み表示／非表示ボタン -->
+
+<button type="button" id="toggleAllergenArea">絞り込み条件を表示</button>
+
+<div id="allergenArea">  <!-- 範囲 -->
+
     <!-- アレルゲン除外 -->
-    <br><label>【絞り込み】:</label>
+  
     <div class="allergen-controls">
   <button type="button" class="select-all-btn">全選択</button>
   <button type="button" class="deselect-all-btn">全解除</button>
@@ -61,10 +67,13 @@
     <!-- hiddenフィールド -->
     <input type="hidden" name="excludedAllergens" id="excludedAllergens">
 
+</div><!-- 範囲 -->
+
+
     <!-- 検索ボタン -->
     <input type="submit" value="検索">
   </form>
-
+<p><a href="mainMenu.jsp">メインメニューに戻る</a></p>
   <script src="js/allergenFilter.js"></script>
 </body>
 </html>
