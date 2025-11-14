@@ -11,8 +11,7 @@
 *.log
 
 # === IDE / Environment ===
-/.classpath
-/.project
+
 /.settings/
 /.idea/
 /.vscode/
