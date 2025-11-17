@@ -6,39 +6,14 @@
 <head>
   <meta charset="UTF-8">
   <title>お気に入り一覧</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #f0f8ff;
-      padding: 2em;
-      text-align: center;
-    }
-    .product-card {
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 1em;
-      margin: 1em auto;
-      width: 80%;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-    }
-    .product-card h3 {
-      margin: 0.5em 0;
-    }
-    .product-card button {
-      background: #d9534f;
-      color: white;
-      border: none;
-      padding: 0.5em 1em;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .product-card button:hover {
-      background: #c9302c;
-    }
-  </style>
+<link rel="stylesheet" href="css/FavoriteList.css">
 </head>
 <body>
+<div class="top-right-nav">
+    <a href="mainMenu.jsp">🏠 メイン</a>
+    <a href="SearchFormServlet">🔍 検索</a>
+    <a href="FavoriteListServlet">⭐ お気に入り</a>
+</div>
   <h1>お気に入り一覧</h1>
 
  <c:choose>
@@ -53,7 +28,7 @@
 
         <form action="FavoriteRemoveServlet" method="post">
           <input type="hidden" name="productId" value="${product.id}">
-          <button type="submit">お気に入り解除</button>
+          <button type="submit" ;">お気に入り解除</button>
         </form>
        
       </div>

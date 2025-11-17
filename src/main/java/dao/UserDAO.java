@@ -32,4 +32,22 @@ public class UserDAO {
             stmt.executeUpdate();
         }
     }
+    
+    public User findByNameAndPass(String name, String password) throws SQLException {
+        String sql = "SELECT * FROM USERS WHERE NAME = ? AND PASSWORD = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, name);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("ID"));
+                user.setName(rs.getString("NAME"));
+                user.setPass(rs.getString("PASSWORD"));
+                return user;
+            }
+            return null;  // 見つからない
+        }
+    }
 }

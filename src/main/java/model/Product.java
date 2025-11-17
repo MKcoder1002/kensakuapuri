@@ -7,7 +7,10 @@ public class Product {
   private int id;
   private String name;
   private String category;
-  private List<Allergen> allergens = new ArrayList<>();// 商品に紐づくアレルゲン一覧
+  private List<Allergen> allergens = new ArrayList<>();
+
+  // ★追加：お気に入り状態を保持するフィールド
+  private boolean favorited;
 
   // --- Getter / Setter ---
   public int getId() { return id; }
@@ -21,4 +24,13 @@ public class Product {
 
   public List<Allergen> getAllergens() { return allergens; }
   public void setAllergens(List<Allergen> allergens) { this.allergens = allergens; }
+
+  // ★ Getter/Setter を追加
+  public boolean isFavorited() {
+      return favorited;
+  }
+
+  public void setFavorited(boolean favorited) {
+      this.favorited = favorited;
+  }
 }

@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       buttons.forEach(b => b.classList.add("selected"));
       updateHiddenField();
-      console.log("全選択:", hiddenInput.value);
     });
   });
 
@@ -28,24 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       buttons.forEach(b => b.classList.remove("selected"));
       updateHiddenField();
-      console.log("全解除:", hiddenInput.value);
     });
   });
 
-  //クリックしたら絞り込みの表示／非表示
-  toggleBtn.addEventListener("click", () => {
-    allergenArea.style.display = (allergenArea.style.display === "none") ? "block" : "none";
-  });
-  //クリックしたら絞り込みの表示／非表示
+  // 絞り込みエリアの開閉（1つに統合）
   toggleBtn.addEventListener("click", () => {
     const isHidden = window.getComputedStyle(allergenArea).display === "none";
-    allergenArea.style.display = isHidden ? "block" : "none";
-    toggleBtn.textContent = isHidden ? "絞り込み条件を隠す" : "絞り込み条件を表示";
-  });
-
-  //クリックした際の文言の切り替え
-  toggleBtn.addEventListener("click", () => {
-    const isHidden = allergenArea.style.display === "none";
     allergenArea.style.display = isHidden ? "block" : "none";
     toggleBtn.textContent = isHidden ? "絞り込み条件を隠す" : "絞り込み条件を表示";
   });
@@ -53,8 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // hiddenフィールド更新
   function updateHiddenField() {
     const selected = Array.from(buttons)
-                          .filter(b => b.classList.contains("selected"))
-                          .map(b => b.dataset.allergen);
+      .filter(b => b.classList.contains("selected"))
+      .map(b => b.dataset.allergen);
+
     hiddenInput.value = selected.join(",");
   }
 });

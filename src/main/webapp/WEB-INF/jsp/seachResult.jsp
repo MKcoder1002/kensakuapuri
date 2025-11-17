@@ -7,19 +7,17 @@
 <head>
   <meta charset="UTF-8">
   <title>検索結果</title>
-  <style>
-    body { font-family: sans-serif; padding: 2em; background: #FFF8DC; }
-    h2 { color: #333; }
-    table { border-collapse: collapse; width: 100%; margin-top: 1em; }
-    th, td { border: 1px solid #ccc; padding: 0.5em; text-align: left; }
-    th { background-color: #eee; }
-  </style>
+  <link rel="stylesheet" href="css/searchResult.css">
 </head>
 <body>
+ <div class="top-right-nav">
+      <a href="FavoriteListServlet">⭐ お気に入り</a>
+      <a href="SearchFormServlet">🔍 検索に戻る</a>
+      <a href="index.jsp">🔐 ログイン</a>
+  </div>
+ 
   <h2>検索結果</h2>
  
-
-
   <c:choose>
     <c:when test="${empty resultList}">
       <p>該当する商品は見つかりませんでした。</p>
@@ -44,19 +42,22 @@
       </c:if>
     </td>
     <td>
-      <form action="FavoriteAddServlet" method="post">
-        <input type="hidden" name="productId" value="${item.id}">
-        <button type="submit">★ お気に入り追加</button>
-      </form>
+<span class="favorite-btn ${item.favorited ? 'active' : ''}"
+      data-product-id="${item.id}"
+      data-favorited="${item.favorited}">
+    ★
+</span>
+<!-- 検索条件は JS 送信用に hidden で保持 -->
+<input type="hidden" class="keyword" value="${param.keyword}">
+<input type="hidden" class="category" value="${param.category}">
+<input type="hidden" class="excluded" value="${param.excludedAllergens}">
     </td>
   </tr>
 </c:forEach>
-
-
       </table>
     </c:otherwise>
   </c:choose>
-
   <p><a href="<c:url value='/SearchFormServlet' />">検索フォームに戻る</a></p>
+  <script src="js/favorite.js"></script> <!-- 外部JS読み込み -->
 </body>
 </html>

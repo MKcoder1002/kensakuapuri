@@ -12,49 +12,67 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import dao.AllergenDAO;
+import dao.FavoriteDAO;
 import dao.ProductDAO;
 import model.Allergen;
 import model.Product;
-
 @WebServlet("/SearchResultServlet")
 public class SearchResultServlet extends HttpServlet {
-  protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    req.setCharacterEncoding("UTF-8");
 
-    // パラメータ取得
-    String keyword = req.getParameter("keyword");
-    String category = req.getParameter("category");
-    String excluded = req.getParameter("excludedAllergens");
-    List<String> excludeAllergens = (excluded != null && !excluded.isEmpty())
-        ? Arrays.asList(excluded.split(","))
-        : Collections.emptyList();
+    protected void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
 
+        req.setCharacterEncoding("UTF-8");
 
-    // DAO呼び出し
-    ProductDAO dao = new ProductDAO();
-    List<Product> resultList = dao.search(keyword, category, excludeAllergens);
-    System.out.println("=== search() メソッドが呼ばれました ===");
+        // ▼ ログインユーザー取得（セッション）
+        model.User loginUser = (model.User) req.getSession().getAttribute("loginUser");
+        int userId = (loginUser != null) ? loginUser.getId() : -1;
 
+        // パラメータ取得
+        String keyword = req.getParameter("keyword");
+        String category = req.getParameter("category");
+        String excluded = req.getParameter("excludedAllergens");
 
-//    // ログ出力（デバッグ用）
-//    System.out.println("=== 検索結果 ===");
-//    System.out.println("keyword: " + keyword);
-//    System.out.println("category: " + category);
-//    System.out.println("excludeAllergens: " + excludeAllergens);
-//    System.out.println("取得件数: " + resultList.size());
-//    for (Product p : resultList) {
-//      System.out.println(p.getName() + " / " + p.getCategory());
-//    }
+        List<String> excludeAllergens =
+            (excluded != null && !excluded.isEmpty())
+            ? Arrays.asList(excluded.split(","))
+            : Collections.emptyList();
 
-    // カテゴリ・アレルゲン一覧も再取得してフォームに戻す
-    List<String> categoryList = dao.findAllCategories();
-    List<Allergen> allergenList = new AllergenDAO().findAll();
+        // DAO呼び出し
+        ProductDAO dao = new ProductDAO();
+        List<Product> resultList = dao.search(keyword, category, excludeAllergens,userId);
 
-    // JSPへ渡す
-    req.setAttribute("resultList", resultList);
-    req.setAttribute("categoryList", categoryList);
-    req.setAttribute("allergenList", allergenList);
+        // ★★ Favorite 判定を追加 ★★
+        if (userId != -1) {
+            dao.FavoriteDAO favDao = new FavoriteDAO();
 
-    req.getRequestDispatcher("/WEB-INF/jsp/seachResult.jsp").forward(req, res);
-  }
+            for (Product p : resultList) {
+                boolean fav = false;
+
+                try {
+                    fav = favDao.isFavorite(userId, p.getId());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                p.setFavorited(fav); // ← JSP側で ${item.favorited} が使えるようになる！
+            }
+        }
+
+        // カテゴリ・アレルゲン一覧も再取得
+        List<String> categoryList = dao.findAllCategories();
+        List<Allergen> allergenList = new AllergenDAO().findAll();
+
+        // JSPへ渡す
+        req.setAttribute("resultList", resultList);
+        req.setAttribute("categoryList", categoryList);
+        req.setAttribute("allergenList", allergenList);
+
+        req.getRequestDispatcher("/WEB-INF/jsp/seachResult.jsp").forward(req, res);
+    }
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
+        doGet(req, res);
+    }
 }

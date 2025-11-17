@@ -1,0 +1,53 @@
+@charset "UTF-8";
+@charset "UTF-8";
+
+/* 背景 */
+body {
+  font-family: "Hiragino Sans", "Meiryo", sans-serif;
+  background: #FFF8DC; /* ミスドっぽいクリーム色 */
+  text-align: center;
+  margin: 0;
+  padding-top: 6em;
+}
+
+/* 全体のカード */
+.container {
+  background: #ffffff;
+  display: inline-block;
+  padding: 3em 4em;
+  border-radius: 14px;
+  border: 2px solid #d4b48c;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* タイトル */
+h1 {
+  color: #6b3e2e; /* ミスドブラウン */
+  margin-bottom: 1em;
+}
+
+/* メッセージ */
+.success {
+  color: #4c8c4a;
+  font-size: 20px;
+  margin-bottom: 0.5em;
+}
+
+.error {
+  color: #d9534f;
+  font-size: 20px;
+  margin-bottom: 0.5em;
+}
+
+.welcome {
+  color: #6b3e2e;
+  font-size: 22px;
+  margin-bottom: 1.5em;
+}
+
+/* ボタン */
+.btn {
+  display: inline-block;
+  padding: 0.8em 2em;
+  background: #c97b63; /* ミスドのアイシングカラー */
+  color:

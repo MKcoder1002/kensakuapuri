@@ -17,37 +17,36 @@ import util.DBUtil;
 
 @WebServlet("/Login")
 public class Login extends HttpServlet {
-  private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    // リクエストパラメータの取得
-    request.setCharacterEncoding("UTF-8");
-    String name = request.getParameter("name");
-    String pass = request.getParameter("pass");
-    // Userインスタンス（ユーザー情報）の生成
-    User user = new User(name, pass);
-    // ログイン処理
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
+        String name = request.getParameter("name");
+        String pass = request.getParameter("pass");
 
-    boolean isLogin = false;
+        try (Connection conn = DBUtil.getConnection()) {
+            UserDAO dao = new UserDAO(conn);
 
-    try (Connection conn = DBUtil.getConnection()) {
-      UserDAO dao = new UserDAO(conn);
-      isLogin = dao.login(name, pass); // DB照合
-    } catch (Exception e) {
-      e.printStackTrace();
+            // ID を含むユーザー情報を取得
+            User loginUser = dao.findByNameAndPass(name, pass);
+
+            if (loginUser != null) {   // ログイン成功
+                HttpSession session = request.getSession();
+                session.setAttribute("loginUser", loginUser);
+                response.sendRedirect("mainMenu.jsp");
+                return;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // ログイン失敗した場合
+        request.setAttribute("errorMessage", "ログインに失敗しました");
+        RequestDispatcher dispatcher =
+                request.getRequestDispatcher("WEB-INF/jsp/loginResult.jsp");
+        dispatcher.forward(request, response);
     }
-
-    if (isLogin) {
-    	  HttpSession session = request.getSession();
-    	  session.setAttribute("loginUser", user);
-    	  // メインメニュー画面へリダイレクト
-    	  response.sendRedirect("mainMenu.jsp");
-    	} else {
-    	  // ログイン失敗時は結果画面へフォワード
-    	  request.setAttribute("errorMessage", "ログインに失敗しました");
-    	  RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/loginResult.jsp");
-    	  dispatcher.forward(request, response);
-    	}
-  }
 }

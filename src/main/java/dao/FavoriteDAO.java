@@ -40,7 +40,56 @@ public class FavoriteDAO {
       stmt.executeUpdate();
     }
   }
+  
+  public boolean toggleFavorite(int userId, int productId) throws SQLException {
+	    String checkSql = "SELECT COUNT(*) FROM FAVORITES WHERE USER_ID=? AND PRODUCT_ID=?";
+	    String insertSql = "INSERT INTO FAVORITES (USER_ID, PRODUCT_ID) VALUES (?, ?)";
+	    String deleteSql = "DELETE FROM FAVORITES WHERE USER_ID=? AND PRODUCT_ID=?";
 
+	    try (Connection conn = DBUtil.getConnection()) {
+
+	        // 1. 既にお気に入りか確認
+	        PreparedStatement checkStmt = conn.prepareStatement(checkSql);
+	        checkStmt.setInt(1, userId);
+	        checkStmt.setInt(2, productId);
+	        ResultSet rs = checkStmt.executeQuery();
+	        rs.next();
+	        boolean exists = rs.getInt(1) > 0;
+
+	        if (exists) {
+	            // 2. 存在 → 削除
+	            PreparedStatement delStmt = conn.prepareStatement(deleteSql);
+	            delStmt.setInt(1, userId);
+	            delStmt.setInt(2, productId);
+	            delStmt.executeUpdate();
+	            return false;  // ★削除されたので false を返す
+	        } else {
+	            // 3. 無い → 追加
+	            PreparedStatement insStmt = conn.prepareStatement(insertSql);
+	            insStmt.setInt(1, userId);
+	            insStmt.setInt(2, productId);
+	            insStmt.executeUpdate();
+	            return true;   // ★追加されたので true を返す
+	        }
+	    }
+	}
+//★追加：指定ユーザーの商品がお気に入りか判定
+  public boolean isFavorite(int userId, int productId) throws SQLException {
+	    String sql = "SELECT COUNT(*) FROM FAVORITES WHERE USER_ID = ? AND PRODUCT_ID = ?";
+
+	    try (Connection conn = DBUtil.getConnection();
+	         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+	        stmt.setInt(1, userId);
+	        stmt.setInt(2, productId);
+
+	        ResultSet rs = stmt.executeQuery();
+	        if (rs.next()) {
+	            return rs.getInt(1) > 0; // 1件以上あればお気に入り
+	        }
+	    }
+	    return false;
+	}
   // お気に入り一覧取得
   public  List<Product> findByUserId(int userId) throws SQLException {
     List<Product> list = new ArrayList<>();
@@ -99,4 +148,5 @@ public class FavoriteDAO {
 
     return allergens;
   }
+  
 }

@@ -8,37 +8,15 @@ User loginUser = (User) session.getAttribute("loginUser");
 <head>
   <meta charset="UTF-8">
   <title>検索メニュー</title>
-  <style>
-    body { 
-    font-family: sans-serif; padding: 2em; background: aliceblue;
-    text-align: center;
-     }
-    h1 {
-     color: #333;
-      }
-    .menu {
-     margin-top: 2em;
-      }
-    .menu a {
-      display: inline-block;
-      padding: 1em 2em;
-      background: #0078d4;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-    .menu a:hover {
-      background: #005fa3;
-    }
-  </style>
+ <link rel="stylesheet"  href="css/mainMenu.css">
 </head>
 <body>
   <h1>ようこそ、<%= loginUser.getName() %>さん！</h1>
 
   <div class="menu">
-    <a href="SearchFormServlet">🔍 検索する</a>
-    <a href="FavoriteListServlet">⭐ お気に入りを見る</a>
+    <a href="SearchFormServlet">🔍 検索</a>
+    <a href="FavoriteListServlet">⭐ お気に入り</a>
+    <a href = "index.jsp">🔐ログイン画面</a>
     
   </div>
 </body>

@@ -19,5 +19,13 @@ public class User implements Serializable {
     this.password = pass;
   }
   public String getName() { return name; }
+  
+
+  public void setPass(String password) {
+	this.password = password;
+  }
+  public void setName(String name) {
+	this.name = name;
+  }
   public String getPass() { return password; }
 }

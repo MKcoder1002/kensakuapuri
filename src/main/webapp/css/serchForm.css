@@ -1,27 +1,29 @@
 @charset "UTF-8";
-/*絞り込み表示／非表示*/
+
+/* 絞り込み表示／非表示 */
 #allergenArea {
   display: none;
 }
-#toggleAllergenArea{
-	display: block;              /* 中央配置 */
-	  margin: 3em auto 0 auto;     /* 上に余白、左右自動で中央配置 */
-	  padding: 0.5em 2em;        /* ボタンサイズ拡大 */
-	  font-size: 20px;             /* テキストサイズ拡大 */
-	  width: auto;                 /* 必要なら固定幅 */
-	  background: #7b152345;
-	  color: black;
-	  border: none;
-	  border-radius: 8px;
-	  cursor: pointer;
-	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	  transition: background 0.3s ease;
-	}
 
-	#toggleAllergenArea:hover{
-		background-color:#e27373 ;
-	}
-/*全選択・全解除ボタン*/
+#toggleAllergenArea{
+  display: block;
+  margin: 3em auto 0 auto;
+  padding: 0.5em 2em;
+  font-size: 20px;
+  background: #F7D560; /* ミスドの黄色 */
+  color: #6A3A1D;       /* ロゴ系ブラウン */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
+}
+
+#toggleAllergenArea:hover{
+  background-color: #EFC94A; /* 黄色を濃くしてホバー感 */
+}
+
+/* 全選択・全解除ボタン */
 .allergen-controls {
   text-align: center;
   margin: 20px 0;
@@ -31,18 +33,20 @@
   margin: 0 10px;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #eee;
-  border: 1px solid #ccc;
+  background-color: #F4BFBF; /* ほんのりピンク */
+  border: 1px solid #C28C8C;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s;
+  color: #6A3A1D;
 }
 
 .allergen-controls button:hover {
-  background-color: #d0eaff;
+  background-color: #E26A6A; /* ピンク系濃い赤 */
+  color: white;
 }
 
-/*アレルゲンボタン*/
+/* アレルゲンボタン */
 .allergen-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -53,117 +57,96 @@
 .allergen-btn {
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
-  background-color: #e0f0ff;
+  border: 1px solid #C7A693;
+  background-color: #FFF4E0; /* ミスドの明るいベージュ */
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.2s;
+  color: #6A3A1D;
+}
+
+.allergen-btn:hover {
+  background-color: #F7D560;
 }
 
 .allergen-btn.selected {
-  background-color: #e0f0ff;
-  border-color: #0069cc;
+  background-color: #E26A6A; 
+  border-color: #6A3A1D;
+  color: white;
 }
 
 .allergen-grid label {
   margin: 0;
 }
-.allergen-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
 
-.allergen-table td {
-  width: 25%; /* 画面幅の1/4 */
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-.allergen-btn {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #333;
-  background-color: #f9f9f9;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-}
-
-.allergen-btn:hover {
-  background-color: #e0f0ff;
-}
-
-/* 横並び用フォーム */
+/* 横並びフォーム */
 .search-form {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px; /* 要素の間隔 */
+  gap: 20px;
   margin: 20px auto;
 }
 
-/*商品名検索ボックス*/
+/* 商品名検索ボックス */
 input[name="keyword"] {
   width: 60%;
   padding: 12px 20px;
   font-size: 16px;
-  border: 1px solid #ddd;
+  border: 1px solid #E0C4A8;
   border-radius: 50px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   outline: none;
   transition: all 0.2s ease;
-}
- 
-select[name="category"]{
-	width:60%;
-	padding: 12px 20px;
-	font-size: 16px;
-	border: 1px solid #ddd;
+  background: #FFF4E0;
+  color: #6A3A1D;
 }
 
 input[name="keyword"]:focus {
-  border-color: #4285f4;
-  box-shadow: 0 0 8px rgba(66, 133, 244, 0.4);
+  border-color: #E26A6A;
+  box-shadow: 0 0 8px rgba(226, 106, 106, 0.5);
 }
 
+select[name="category"]{
+  width:60%;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 1px solid #E0C4A8;
+  background: #FFF4E0;
+  color: #6A3A1D;
+}
 
-
-
+/* 背景 */
 body {
   font-family: sans-serif;
   padding: 2em;
-  background :#FFF8DC;
+  background: #FFF4E0; /* ミスド風ベージュ */
 }
 
 h2 {
-  color: #333;
+  color: #6A3A1D;
   text-align: center;
 }
 
+/* ラベル */
 label {
-    white-space: nowrap;
-    display: inline-block ;
-	white-space: nowrap;
-    margin: 20px;
-    text-align: center;
-	font-family: sans-serif;
-	font-size: larger;
-	font-weight: bold;
+  white-space: nowrap;
+  display: inline-block;
+  margin: 20px;
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
+  color: #6A3A1D;
 }
 
-/*検索ボタン*/
+/* 検索ボタン */
 input[type="submit"]{
-  display: block;              /* 中央配置 */
-  margin: 3em auto 0 auto;     /* 上に余白、左右自動で中央配置 */
-  padding: 1.2em 2.5em;        /* ボタンサイズ拡大 */
-  font-size: 20px;             /* テキストサイズ拡大 */
-  width: auto;                 /* 必要なら固定幅 */
-  background: #0078d4;
-  color: white;
+  display: block;
+  margin: 3em auto 0 auto;
+  padding: 1.2em 2.5em;
+  font-size: 20px;
+  background: #6A3A1D; /* ミスド濃ブラウン */
+  color: #FFF4E0;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -172,8 +155,49 @@ input[type="submit"]{
 }
 
 input[type="submit"]:hover {
-  background: #005fa3;
-  
+  background: #4E2814; /* ホバー濃いめ */
+}
+/* メインメニューに戻るリンク */
+.return-menu {
+  display: inline-block;
+  margin: 2em auto 0 auto;
+  padding: 0.1em;
+  font-size: 18px;
+  background: #F7D560;   /* ミスドの優しい黄色 */
+  color: #6A3A1D;        /* ブラウン文字 */
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
+.return-menu:hover {
+  background: #EFC94A;
+  transform: translateY(-2px);
+}
 
+/* 右上ミニナビ */
+.top-right-nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.top-right-nav a {
+  padding: 6px 12px;
+  font-size: 14px;
+  background: #F7D560;   /* ミスド黄色 */
+  color: #6A3A1D;        /* ブラウン文字 */
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s ease;
+}
+
+.top-right-nav a:hover {
+  background: #EFC94A;
+}

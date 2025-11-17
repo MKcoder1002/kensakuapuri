@@ -9,7 +9,12 @@
   <link rel="stylesheet" href="css/serchForm.css">
 </head>
 <body>
-  <h2>商品検索フォーム</h2>
+<div class="top-right-nav">
+<a href="mainMenu.jsp">🏠 メイン</a>
+    <a href="FavoriteListServlet">⭐ お気に入り</a>
+    <a href="index.jsp">🔐 ログイン</a>
+</div>
+  <h2>アレルギー・商品検索</h2>
 
   <form action="SearchResultServlet" method="get">
     <div class="search-form">
@@ -73,7 +78,8 @@
     <!-- 検索ボタン -->
     <input type="submit" value="検索">
   </form>
-<p><a href="mainMenu.jsp">メインメニューに戻る</a></p>
+
+
   <script src="js/allergenFilter.js"></script>
 </body>
 </html>

@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+
+/* 背景 */
+body {
+  font-family: "Helvetica", "sans-serif";
+  background: #FFF8DC; /* クリーム色 */
+  text-align: center;
+  padding-top: 5em;
+  margin: 0;
+}
+
+/* 全体のコンテナ */
+.container {
+  background: #ffffff;
+  display: inline-block;
+  padding: 3em 4em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border: 2px solid #d4b48c;
+}
+
+/* 見出し */
+h1 {
+  color: #6b3e2e;       /* ミスドらしいブラウン */
+  margin-bottom: 1.5em;
+  font-size: 28px;
+}
+
+/* ボタン */
+.btn {
+  display: inline-block;
+  padding: 0.8em 2em;
+  background: #c97b63;  /* ミスドのアイシング風カラー */
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s ease, transform 0.1s;
+}
+
+.btn:hover {
+  background: #a8634d;
+  transform: translateY(-2px);
+}
+

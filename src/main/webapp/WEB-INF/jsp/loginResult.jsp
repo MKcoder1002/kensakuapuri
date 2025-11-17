@@ -10,6 +10,7 @@ User loginUser = (User) session.getAttribute("loginUser");
 <head>
 <meta charset="UTF-8">
 <title>検索アプリ</title>
+<link rel="stylesheet"  href="css/loginResult.css">
 </head>
 <body>
 <h1>ログイン</h1>
