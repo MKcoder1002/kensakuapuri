@@ -14,7 +14,7 @@ Java / JSP / Servlet / SQL を用いて開発した Web アプリケーション
 | データベース | H2DB |
 | ビルドツール | Apache Maven または Eclipse Dynamic Web Project |
 | アプリケーションサーバー | Apache Tomcat 10.x |
-| IDE | Eclipse / IntelliJ IDEA / VS Code |
+| IDE | Eclipse / VS Code |
 | バージョン管理 | Git / GitHub |
 | OS | macOS / Windows |
 
@@ -26,7 +26,7 @@ Java / JSP / Servlet / SQL を用いて開発した Web アプリケーション
 | ユーザー管理 | 新規登録・ログイン・ログアウト・パスワード変更 |
 | データ登録 | フォーム入力によるデータ追加・バリデーション処理 |
 | データ検索 | キーワード検索・絞り込み検索・一覧表示 |
-| 更新／削除 | 登録データの編集・削除機能 |
+| お気に入り管理/登録/削除 | 登録データの編集・削除機能 |
 | セッション管理 | ログインユーザー情報の保持とアクセス制御 |
 | エラーハンドリング | 例外処理／404ページ|
 
