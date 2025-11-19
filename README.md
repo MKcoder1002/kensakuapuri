@@ -101,16 +101,14 @@ project/
 ## 🗄 データベース構成・テーブル定義
 ### 📘 テーブル一覧
 USERS：ユーザ情報
-PRODUCTS：商品情報
-ALLERGENS：アレルゲンマスタ
-PRODUCT_ALLERGENS：商品とアレルゲンの中間テーブル
-FAVORITES：お気に入り（ユーザ × 商品）
 
-| カラム名     | 型       | NOT NULL | 説明                       |
-| -------- | ------- | -------- | ------------------------ |
-| ID       | INT     | YES      | 主キー（自動採番）                |
-| NAME     | VARCHAR | YES      | ユーザー名                    |
-| PASSWORD | VARCHAR | YES      | パスワード（平文でなく本来はハッシュが望ましい） |
+PRODUCTS：商品情報
+
+ALLERGENS：アレルゲンマスタ
+
+PRODUCT_ALLERGENS：商品とアレルゲンの中間テーブル
+
+FAVORITES：お気に入り（ユーザ × 商品）
 
 
 ### テーブル定義例：users
