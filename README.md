@@ -143,6 +143,7 @@ FAVORITES：お気に入り（ユーザ × 商品）
 | USER_ID    | INT       | YES      | USERS の外部キー    |
 | PRODUCT_ID | INT       | YES      | PRODUCTS の外部キー |
 | CREATED_AT | TIMESTAMP | YES      | 登録日時           |
+<img width="775" height="482" alt="スクリーンショット (12)" src="https://github.com/user-attachments/assets/d474c1b8-ec63-41bb-ae71-8693d8cd40f8" />
 
 ---
 
