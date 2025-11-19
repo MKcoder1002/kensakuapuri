@@ -38,19 +38,62 @@ project/
 ├── src/
 │   ├── main/
 │   │   ├── java/
+│   │   │   ├── dao/
+│   │   │   │   ├── AllergenDAO.java
+│   │   │   │   ├── FavoriteDAO.java
+│   │   │   │   ├── ProductDAO.java
+│   │   │   │   └── UserDAO.java
+│   │   │   ├── model/
+│   │   │   │   ├── Allergen.java
+│   │   │   │   ├── Product.java
+│   │   │   │   └── User.java
 │   │   │   ├── servlet/
+│   │   │   │   ├── FavoriteAddServlet.java
+│   │   │   │   ├── FavoriteListServlet.java
+│   │   │   │   ├── FavoriteRemoveServlet.java
+│   │   │   │   ├── FavoriteToggleServlet.java
 │   │   │   │   ├── LoginServlet.java
+│   │   │   │   ├── RegisterFormServlet.java
 │   │   │   │   ├── RegisterServlet.java
-│   │   │   │   └── ListServlet.java
-│   │   │   └── dao/
-│   │   │       └── UserDAO.java
+│   │   │   │   ├── SearchFormServlet.java
+│   │   │   │   └── SearchResultServlet.java
+│   │   │   └── util/
+│   │   │       └── DBUtil.java
 │   │   ├── webapp/
-│   │   │   ├── WEB-INF/web.xml
-│   │   │   ├── jsp/login.jsp
-│   │   │   ├── jsp/register.jsp
-│   │   │   └── css/style.css
-│   └── test/
+│   │   │   ├── css/
+│   │   │   │   ├── FavoriteList.css
+│   │   │   │   ├── login.css
+│   │   │   │   ├── loginResult.css
+│   │   │   │   ├── mainMenu.css
+│   │   │   │   ├── register.css
+│   │   │   │   ├── registerResult.css
+│   │   │   │   ├── searchForm.css
+│   │   │   │   └── searchResult.css
+│   │   │   ├── images/
+│   │   │   │   └── (画像ファイル)
+│   │   │   ├── js/
+│   │   │   │   ├── allergenFilter.js
+│   │   │   │   └── favorite.js
+│   │   │   ├── META-INF/
+│   │   │   ├── WEB-INF/
+│   │   │   │   ├── web.xml
+│   │   │   │   └── jsp/
+│   │   │   │       ├── favoriteList.jsp         （使用CSS: FavoriteList.css）
+│   │   │   │       ├── loginResult.jsp          （使用CSS: loginResult.css）
+│   │   │   │       ├── login.jsp                （使用CSS: login.css）
+│   │   │   │       ├── register.jsp             （使用CSS: register.css）
+│   │   │   │       ├── registerResult.jsp       （使用CSS: registerResult.css）
+│   │   │   │       ├── searchForm.jsp           （使用CSS: searchForm.css）
+│   │   │   │       ├── searchResult.jsp         （使用CSS: searchResult.css）
+│   │   │   │       └── mainMenu.jsp             （使用CSS: mainMenu.css）
+│   │   │   ├── index.jsp
+│   │   │   └── mainMenu.jsp
+├── drawio/
+│   └── (仕様書や図)
+├── build/
+├── memo.md
 └── README.md
+
 ```
 
 ---
