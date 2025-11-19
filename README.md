@@ -120,6 +120,30 @@ FAVORITES：お気に入り（ユーザ × 商品）
 | password | VARCHAR(255) | ハッシュ化されたパスワード |
 | created_at | DATETIME | 登録日時 |
 
+| カラム名       | 型       | NOT NULL | 説明               |
+| ---------- | ------- | -------- | ---------------- |
+| PRODUCT_ID | INT     | YES      | 主キー              |
+| NAME       | VARCHAR | YES      | 商品名              |
+| CATEGORY   | VARCHAR | NO       | カテゴリ名（例：食品・飲料など） |
+
+| カラム名        | 型       | NOT NULL | 説明                 |
+| ----------- | ------- | -------- | ------------------ |
+| ALLERGEN_ID | INT     | YES      | 主キー                |
+| NAME        | VARCHAR | YES      | アレルゲン名（例：卵、乳、小麦など） |
+| TYPE        | VARCHAR | NO       | 種類（例：特定原材料）        |
+
+| カラム名        | 型       | NOT NULL | 説明               |
+| ----------- | ------- | -------- | ---------------- |
+| PRODUCT_ID  | INT     | YES      | PRODUCTS への外部キー  |
+| ALLERGEN_ID | INT     | YES      | ALLERGENS への外部キー |
+| CONTAINS    | BOOLEAN | YES      | 含む場合 true        |
+
+| カラム名       | 型         | NOT NULL | 説明             |
+| ---------- | --------- | -------- | -------------- |
+| USER_ID    | INT       | YES      | USERS の外部キー    |
+| PRODUCT_ID | INT       | YES      | PRODUCTS の外部キー |
+| CREATED_AT | TIMESTAMP | YES      | 登録日時           |
+
 ---
 
 ## 🧠 設計方針・工夫点
