@@ -11,7 +11,7 @@ Java / JSP / Servlet / SQL を用いて開発した Web アプリケーション
 |------|------|
 | 言語 | Java（JDK 17 など） |
 | フレームワーク | Servlet / JSP（Jakarta EE） |
-| データベース | MySQL 8.0 |
+| データベース | H2DB |
 | ビルドツール | Apache Maven または Eclipse Dynamic Web Project |
 | アプリケーションサーバー | Apache Tomcat 10.x |
 | IDE | Eclipse / IntelliJ IDEA / VS Code |
@@ -28,7 +28,7 @@ Java / JSP / Servlet / SQL を用いて開発した Web アプリケーション
 | データ検索 | キーワード検索・絞り込み検索・一覧表示 |
 | 更新／削除 | 登録データの編集・削除機能 |
 | セッション管理 | ログインユーザー情報の保持とアクセス制御 |
-| エラーハンドリング | 例外処理／404ページ／入力エラーメッセージ表示 |
+| エラーハンドリング | 例外処理／404ページ|
 
 ---
 
@@ -73,10 +73,10 @@ project/
 ---
 
 ## 🧠 設計方針・工夫点
-- MVC設計：Servlet（Controller）、DAO（Model）、JSP（View）を分離
-- SQLインジェクション対策として **PreparedStatement** を使用
+- MVC設計：Servlet（Controller）、model,DAO（Model）、JSP（View）を分離
+- データベースへの接続処理は util.DBUtil クラスで一元管理しています。
+- SQLインジェクション対策として **PreparedStatement** を使用しています。
 - パスワードは **ハッシュ化（SHA-256 / bcrypt）** して保存
-- JSP include によるヘッダー・フッターの共通化
 - ER図・シーケンス図を用いて処理を明確化
 
 ---
@@ -128,7 +128,7 @@ project/
 
 ## 👤 作成者
 - **氏名（またはGitHubアカウント）**：Your Name  
-- **開発期間**：2025年○月〜○月  
+- **開発期間**：2025年10月〜11月  
 - **連絡先**：your-email@example.com  
 - **GitHub**：https://github.com/yourname/java-webapp-portfolio
 
