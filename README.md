@@ -164,7 +164,7 @@ FAVORITES：お気に入り（ユーザ × 商品）
 > - `docs/class_diagram.png`：クラス図  
 >
 > 例：  
-> ![シーケンス図](./docs/uml_sequence.png)
+> ![シーケンス図](./docs/usecase.png)
 
 ---
 
