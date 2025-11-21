@@ -15,8 +15,8 @@ public class UserDAO {
     }
 
     public boolean login(String name, String password) throws SQLException {
-        String sql = "SELECT * FROM USERS WHERE name = ? AND password = ?";
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+        String sql = "SELECT * FROM users WHERE name = ? AND password = ?";
+        try (PreparedStatement stmt =this.conn.prepareStatement(sql)) {
             stmt.setString(1, name);
             stmt.setString(2, password);
             ResultSet rs = stmt.executeQuery();
@@ -25,8 +25,8 @@ public class UserDAO {
     }
 
     public void register(User user) throws SQLException {
-        String sql = "INSERT INTO USERS (name,password) VALUES (?, ?)";
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+        String sql = "INSERT INTO users (name,password) VALUES (?, ?)";
+        try (PreparedStatement stmt =this.conn.prepareStatement(sql)) {
             stmt.setString(1, user.getName());
             stmt.setString(2, user.getPass());
             stmt.executeUpdate();
@@ -34,7 +34,7 @@ public class UserDAO {
     }
     
     public User findByNameAndPass(String name, String password) throws SQLException {
-        String sql = "SELECT * FROM USERS WHERE NAME = ? AND PASSWORD = ?";
+        String sql = "SELECT * FROM users WHERE NAME = ? AND PASSWORD = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, name);
             stmt.setString(2, password);
@@ -47,7 +47,7 @@ public class UserDAO {
                 user.setPass(rs.getString("PASSWORD"));
                 return user;
             }
-            return null;  // 見つからない
+            return null;  
         }
     }
 }
