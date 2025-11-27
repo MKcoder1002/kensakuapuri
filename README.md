@@ -100,18 +100,20 @@ project/
 
 ## 🗄 データベース構成・テーブル定義
 ### 📘 テーブル一覧
-USERS：ユーザ情報
 
-PRODUCTS：商品情報
 
-ALLERGENS：アレルゲンマスタ
 
-PRODUCT_ALLERGENS：商品とアレルゲンの中間テーブル
+
+マスタ
+
+
 
 FAVORITES：お気に入り（ユーザ × 商品）
 
 
-### テーブル定義例：users
+### テーブル定義
+
+〇USERS：ユーザ情報
 | カラム名 | 型 | 説明 |
 |-----------|----|------|
 | id | INT | 主キー（AUTO_INCREMENT） |
@@ -120,29 +122,35 @@ FAVORITES：お気に入り（ユーザ × 商品）
 | password | VARCHAR(255) | ハッシュ化されたパスワード |
 | created_at | DATETIME | 登録日時 |
 
+〇PRODUCTS：商品情報
 | カラム名       | 型       | NOT NULL | 説明               |
 | ---------- | ------- | -------- | ---------------- |
 | PRODUCT_ID | INT     | YES      | 主キー              |
 | NAME       | VARCHAR | YES      | 商品名              |
 | CATEGORY   | VARCHAR | NO       | カテゴリ名（例：食品・飲料など） |
 
+〇ALLERGENS：アレルゲン
 | カラム名        | 型       | NOT NULL | 説明                 |
 | ----------- | ------- | -------- | ------------------ |
 | ALLERGEN_ID | INT     | YES      | 主キー                |
 | NAME        | VARCHAR | YES      | アレルゲン名（例：卵、乳、小麦など） |
 | TYPE        | VARCHAR | NO       | 種類（例：特定原材料）        |
 
+〇PRODUCT_ALLERGENS：商品とアレルゲンの中間テーブル
 | カラム名        | 型       | NOT NULL | 説明               |
 | ----------- | ------- | -------- | ---------------- |
 | PRODUCT_ID  | INT     | YES      | PRODUCTS への外部キー  |
 | ALLERGEN_ID | INT     | YES      | ALLERGENS への外部キー |
 | CONTAINS    | BOOLEAN | YES      | 含む場合 true        |
 
+〇FAVORITES：お気に入り（ユーザ × 商品）
 | カラム名       | 型         | NOT NULL | 説明             |
 | ---------- | --------- | -------- | -------------- |
 | USER_ID    | INT       | YES      | USERS の外部キー    |
 | PRODUCT_ID | INT       | YES      | PRODUCTS の外部キー |
 | CREATED_AT | TIMESTAMP | YES      | 登録日時           |
+
+###ER図
 <img width="775" height="482" alt="スクリーンショット (12)" src="https://github.com/user-attachments/assets/d474c1b8-ec63-41bb-ae71-8693d8cd40f8" />
 
 ---
@@ -165,9 +173,6 @@ FAVORITES：お気に入り（ユーザ × 商品）
 <img width="584" height="499" alt="スクリーンショット 2025-11-19 151555" src="https://github.com/user-attachments/assets/68c38e0b-e2e1-48cf-9dc0-bdb42c3705e2" />
 
 > - `docs/class_diagram.png`：クラス図  
->
-> 例：  
-> ![シーケンス図](./docs/usecase.png)
 
 ---
 
