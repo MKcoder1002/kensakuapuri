@@ -185,7 +185,7 @@ FAVORITES：お気に入り（ユーザ × 商品）
 ## 📸 画面キャプチャ（例）
  ログイン画面-<img width="1134" height="763" alt="スクリーンショット 2025-11-21 160758" src="https://github.com/user-attachments/assets/7098dfa8-9ce5-44c1-abe4-37b513258b13" />
  ユーザー登録画面
-<img width="765" height="563" alt="スクリーンショット 2025-11-21 160810" src="https://github.com/user-attachments/assets/8a932115-d66f-4007-a7db-cbd3f89a629b" />
+<img width="765" height="563" alt="スクリーンショット 2025-11-21 160810" src="https://github.com/user-attachments/assets/8a932115-d66f-4007-a7db-cbd3f89a629b" /><br>
 ホーム画面
 <img width="1281" height="464" alt="スクリーンショット 2025-11-21 160828" src="https://github.com/user-attachments/assets/c39a605e-9145-42b6-a5c1-117e52e983bd" />
 
