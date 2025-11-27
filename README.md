@@ -101,7 +101,7 @@ project/
 ## 🗄 データベース構成・テーブル定義
 ### 📘 テーブル一覧
 
-#〇USERS：ユーザ情報
+USERS：ユーザ情報
 | カラム名 | 型 | 説明 |
 |-----------|----|------|
 | id | INT | 主キー（AUTO_INCREMENT） |
@@ -110,28 +110,28 @@ project/
 | password | VARCHAR(255) | ハッシュ化されたパスワード |
 | created_at | DATETIME | 登録日時 |
 
-#〇PRODUCTS：商品情報
+PRODUCTS：商品情報
 | カラム名       | 型       | NOT NULL | 説明               |
 | ---------- | ------- | -------- | ---------------- |
 | PRODUCT_ID | INT     | YES      | 主キー              |
 | NAME       | VARCHAR | YES      | 商品名              |
 | CATEGORY   | VARCHAR | NO       | カテゴリ名（例：食品・飲料など） |
 
-#〇ALLERGENS：アレルゲン
+ALLERGENS：アレルゲン
 | カラム名        | 型       | NOT NULL | 説明                 |
 | ----------- | ------- | -------- | ------------------ |
 | ALLERGEN_ID | INT     | YES      | 主キー                |
 | NAME        | VARCHAR | YES      | アレルゲン名（例：卵、乳、小麦など） |
 | TYPE        | VARCHAR | NO       | 種類（例：特定原材料）        |
 
-#〇PRODUCT_ALLERGENS：商品とアレルゲンの中間テーブル
+PRODUCT_ALLERGENS：商品とアレルゲンの中間テーブル
 | カラム名        | 型       | NOT NULL | 説明               |
 | ----------- | ------- | -------- | ---------------- |
 | PRODUCT_ID  | INT     | YES      | PRODUCTS への外部キー  |
 | ALLERGEN_ID | INT     | YES      | ALLERGENS への外部キー |
 | CONTAINS    | BOOLEAN | YES      | 含む場合 true        |
 
-#〇FAVORITES：お気に入り（ユーザ × 商品）
+FAVORITES：お気に入り（ユーザ × 商品）
 | カラム名       | 型         | NOT NULL | 説明             |
 | ---------- | --------- | -------- | -------------- |
 | USER_ID    | INT       | YES      | USERS の外部キー    |
