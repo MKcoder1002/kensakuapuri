@@ -157,11 +157,10 @@ FAVORITES：お気に入り（ユーザ × 商品）
 > <img width="493" height="566" alt="スクリーンショット 2025-11-19 151501" src="https://github.com/user-attachments/assets/c5dc6904-3104-40ca-9582-61e4811364ab" />
 
 > <img width="627" height="519" alt="スクリーンショット 2025-11-19 151512" src="https://github.com/user-attachments/assets/61baa0f2-dcf1-4839-8849-2a4a3689b2d4" />
-ホーム画面
+
 <img width="456" height="583" alt="スクリーンショット 2025-11-19 151535" src="https://github.com/user-attachments/assets/1e3dbca7-3fd5-49a2-bcbd-192a0cea4e28" />
 <img width="584" height="499" alt="スクリーンショット 2025-11-19 151555" src="https://github.com/user-attachments/assets/68c38e0b-e2e1-48cf-9dc0-bdb42c3705e2" />
 
-> - `docs/class_diagram.png`：クラス図  
 
 ---
 
@@ -184,14 +183,14 @@ FAVORITES：お気に入り（ユーザ × 商品）
 ---
 
 ## 📸 画面キャプチャ（例）
- -<img width="1134" height="763" alt="スクリーンショット 2025-11-21 160758" src="https://github.com/user-attachments/assets/7098dfa8-9ce5-44c1-abe4-37b513258b13" />
+ ログイン画面-<img width="1134" height="763" alt="スクリーンショット 2025-11-21 160758" src="https://github.com/user-attachments/assets/7098dfa8-9ce5-44c1-abe4-37b513258b13" />
 <img width="765" height="563" alt="スクリーンショット 2025-11-21 160810" src="https://github.com/user-attachments/assets/8a932115-d66f-4007-a7db-cbd3f89a629b" />
 <img width="1281" height="464" alt="スクリーンショット 2025-11-21 160828" src="https://github.com/user-attachments/assets/c39a605e-9145-42b6-a5c1-117e52e983bd" />
 docs/login_screen.png`  
 > - `docs/list_screen.png`  
 >
 > 例：  
-> ![ログイン画面](./docs/login_screen.png)
+
 
 ---
 
